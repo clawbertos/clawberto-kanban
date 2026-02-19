@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Clawberto Mission Control</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: "SF Pro", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #0f1115;
+      color: #f5f7ff;
+      margin: 0;
+      padding: 40px;
+    }
+    h1 {
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+    .board {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .column {
+      background: #181c24;
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+    }
+    .column h2 {
+      margin-top: 0;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #8fe0ff;
+    }
+    .card {
+      background: #0f1219;
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 12px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .card.done {
+      border-color: rgba(111, 209, 111, 0.45);
+    }
+    .status {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.55);
+    }
+    .owner {
+      font-size: 0.8rem;
+      color: #b5f5d9;
+      margin-top: 6px;
+    }
+    footer {
+      margin-top: 40px;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.6);
+    }
+    a { color: #82cfff; }
+  </style>
+</head>
+<body>
+  <h1>Clawberto Mission Control</h1>
+  <p>Single source of truth for tasks, agents, and status. Jobs (our Steve Jobs-inspired PM) owns this board and will DM Satya on Telegram for significant changes.</p>
+  <p><strong>Last updated:</strong> 2026-02-19 02:55 MST</p>
+
+  <div class="board">
+    <div class="column">
+      <h2>Backlog</h2>
+      <div class="card">
+        <div class="title"><strong>Specialist Agent Roster</strong></div>
+        <div>Spin up CTO (Elon), Marketer (Gary Vee), CRO (Buffett). Define scopes + prompts.</div>
+        <div class="owner">Owner: Jobs</div>
+      </div>
+      <div class="card">
+        <div class="title"><strong>Telegram Alert Automations</strong></div>
+        <div>Wire Jobs agent to push DM updates to Satya whenever any card moves columns.</div>
+        <div class="owner">Owner: Jobs</div>
+      </div>
+      <div class="card">
+        <div class="title"><strong>HTML Pipeline Automation</strong></div>
+        <div>Script Markdown → HTML export so this page regenerates automatically.</div>
+        <div class="owner">Owner: Clawberto</div>
+      </div>
+    </div>
+
+    <div class="column">
+      <h2>In Progress</h2>
+      <div class="card">
+        <div class="title"><strong>Mission Control Kanban + Repo</strong></div>
+        <div>Build canonical board + HTML view, publish to GitHub, document workflow.</div>
+        <div class="owner">Owner: Clawberto</div>
+      </div>
+      <div class="card">
+        <div class="title"><strong>Jobs PM Agent</strong></div>
+        <div>Stand up Steve Jobs-style PM session governing workstreams + reporting cadence.</div>
+        <div class="owner">Owner: Jobs</div>
+      </div>
+    </div>
+
+    <div class="column">
+      <h2>Review</h2>
+      <div class="card">
+        <div class="title"><strong>Daily Security/Update Cron</strong></div>
+        <div>Watch for the 7am audit/update announcements and adjust if needed.</div>
+        <div class="owner">Owner: Jobs</div>
+      </div>
+    </div>
+
+    <div class="column">
+      <h2>Done</h2>
+      <div class="card done">
+        <div class="title"><strong>System Hardening Pass</strong></div>
+        <div>Firewall + stealth on, FileVault enabled, verification complete.</div>
+        <div class="owner">Owner: Clawberto</div>
+      </div>
+      <div class="card done">
+        <div class="title"><strong>Dedicated Gmail Wiring</strong></div>
+        <div>Gog auth finished; formatting fixed; test mail confirmed.</div>
+        <div class="owner">Owner: Clawberto</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Repo: <a href="https://github.com/clawbertos/clawberto-kanban">github.com/clawbertos/clawberto-kanban</a></p>
+    <p>Telegram notifications: triggered by Jobs for significant board changes.</p>
+  </footer>
+</body>
+</html>
