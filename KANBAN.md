@@ -1,11 +1,11 @@
 # Mission Control Kanban
-_Last updated: 2026-02-19 09:33 MST_
+_Last updated: 2026-02-19 10:05 MST_
 
 ## Backlog
-- _Open lane — queue next priority._
+- [ ] **satya.me Content Backfill** — Draft 120 backdated posts (2016-2025) with SEO + CTA for CEO/COO lead gen. _Owner: Gary_
 
 ## In Progress
-- _Pull the next priority from Backlog._
+- [ ] **satya.me Launch (Week Sprint)** — Build Astro-based blog, timeline UI, lead form, GitHub Pages deploy, and DNS plan for satya.me. _Owner: Elon_
 
 ## Review / Verification
 - [ ] **Daily Security/Update Cron** — Confirm scheduled audits deliver announcements tomorrow morning and adjust if needed. _Owner: Jobs_
