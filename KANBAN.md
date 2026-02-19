@@ -1,16 +1,17 @@
 # Mission Control Kanban
-_Last updated: 2026-02-19 08:25 MST_
+_Last updated: 2026-02-19 09:33 MST_
 
 ## Backlog
-- [ ] **Telegram Alert Automations** — Build Jobs → Telegram DM pipeline (spec + parser + delivery). _Owner: Jobs_
+- _Open lane — queue next priority._
 
 ## In Progress
-- _Open lane — pull next priority from Backlog._
+- _Pull the next priority from Backlog._
 
 ## Review / Verification
 - [ ] **Daily Security/Update Cron** — Confirm scheduled audits deliver announcements tomorrow morning and adjust if needed. _Owner: Jobs_
 
 ## Done
+- [x] **Telegram Alert Automations** — Shared parser (`kanban_utils.py`) + `jobs_alert.py` script send Jobs → Telegram deltas on demand. _Owner: Jobs_
 - [x] **Specialist Agent Roster** — Runbooks + HTML briefs for Elon (CTO), Gary (Marketing), Buffett (CRO) at `/specialists/*`. _Owner: Jobs_
 - [x] **HTML Pipeline Automation** — `render_html.py` now converts `KANBAN.md` → `index.html` with timestamp + links. _Owner: Clawberto_
 - [x] **Jobs PM Agent** — Runbook + cadence documented at `/jobs-agent/README.md`; ready for manual or cron-triggered sessions. _Owner: Jobs_

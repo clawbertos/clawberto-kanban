@@ -26,22 +26,18 @@ kanban-board/KANBAN.md
       └─ (4) calls OpenClaw message tool → Telegram DM
 ```
 
-## Implementation Plan
-1. **State cache** — store last-seen columns per card in `kanban-board/.cache/kanban_state.json`.
-2. **Parser** — reuse `render_html.py` parsing logic (factor into shared module or duplicate helper) to map Markdown → cards.
-3. **Diff logic** — compare previous vs current `column` and `done` state; collect events per column change.
-4. **Message builder** — for each event:
-   - Done → `✅ <title> done (owner).`
-   - New In Progress → `⚒️ <title>: <next step/desc>.`
-   - Blocker (optional tag) → `⚠️ <title> stuck — need <owner>/<ask>.`
-5. **Delivery script (`jobs_alert.py`)**
-   - CLI usage: `./jobs_alert.py --reason "manual update"`
-   - Accept `--skip-if-stale <minutes>` to avoid spamming.
-   - Calls OpenClaw messaging via subprocess (`openclaw message send ...`).
-6. **Integration options**
-   - After editing `KANBAN.md`, run `./jobs_alert.py` manually.
-   - Embed inside Jobs PM Agent flow so every Jobs run ends by calling this script with the diff output.
-7. **Future:** cron/FS watcher to auto-run on git commits.
+## Implementation Plan (v1 COMPLETE)
+1. **State cache** — `kanban-board/.cache/kanban_state.json` stores last-seen board snapshot.
+2. **Parser** — `kanban_utils.py` exposes `load_board` + `summarize_delta` for reuse (renderer + alerts share the same logic).
+3. **Diff logic** — `summarize_delta(prev, curr)` compares column + done states and returns per-column change lists.
+4. **Message builder** — `jobs_alert.py` maps columns to emoji (✅/⚒️/🕵️/📝) and narrates the change (`moved into`, `marked done`, `reopened`, etc.).
+5. **Delivery script (`kanban-board/jobs_alert.py`)**
+   - Usage: `./kanban-board/jobs_alert.py` (adds `--dry-run` to preview).
+   - Automatically initializes cache on first run, sends Telegram DM via `openclaw message send --channel telegram --to 6308720344` afterward, then updates cache.
+6. **Integration options (next):**
+   - Call script at the end of every Jobs PM Agent run.
+   - Optional git hook/cron to run after `KANBAN.md` commits.
+7. **Future enhancements:** throttle window, richer context (links to commits), auto-tag blockers.
 
 ## Next Actions
 - [ ] Factor Markdown parsing helpers into `kanban-board/kanban_utils.py` for reuse by both renderer + alert script.
